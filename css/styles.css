@@ -703,10 +703,9 @@ h2:focus {
     }
   }
 
-  @media (max-height: 600px) {
-    .chatbot-modal {
-      bottom: 60px;
-      /* Menambahkan ruang ekstra di bawah jika tinggi viewport kecil */
-    }
+ @media (max-height: 600px) {
+  .chatbot-container {
+    margin-top: calc(70px + 60px); /* Menambahkan ruang ekstra jika tinggi viewport kecil */
   }
+}
 }
