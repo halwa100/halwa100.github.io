@@ -16,23 +16,35 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 10px; /* Adjusted padding for smaller screens */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  background-color: rgb(255, 0, 0);
-  /* Transparent background */
+  background-color: rgb(255, 0, 0); /* Background color */
 }
 
 .logo {
   margin-left: 10px;
-  height: 120px; /* Sesuaikan dengan tinggi yang diinginkan */
-  width: auto;  /* Menjaga proporsi asli logo */
+  height: 120px; /* Adjust as needed */
+  width: auto;  /* Preserve original proportions */
 }
 
 .header {
   font-size: 24px;
   font-weight: bold;
   color: white;
+}
+
+/* Responsive header adjustments */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+  }
+  .logo {
+    height: 80px; /* Reduced logo size for smaller screens */
+  }
 }
 
 .search-bar {
@@ -112,7 +124,7 @@ header {
 
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted grid for better responsiveness */
   gap: 20px;
   margin: 30px 20px;
 }
@@ -141,6 +153,16 @@ header {
   font-size: 24px;
   margin: 15px 0;
   color: #333;
+}
+
+/* Font and layout adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted grid for smaller screens */
+  }
+  .column h2 {
+    font-size: 20px; /* Adjusted font size */
+  }
 }
 
 .column p {
@@ -219,13 +241,12 @@ header {
   border-radius: 5px;
 }
 
-
 /* Floating Action Button */
 .chatbot-fab {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff; /* Warna tombol */
+  background-color: #007bff;
   color: #fff;
   border-radius: 50%;
   width: 60px;
@@ -239,16 +260,16 @@ header {
 }
 
 .chatbot-fab:hover {
-  background-color: #0056b3; /* Warna saat di-hover */
+  background-color: #0056b3;
 }
 
 .chatbot-icon {
   font-size: 24px;
 }
+
 /* Chatbot Modal */
 .chatbot-modal {
   display: none;
-  /* Initially hidden */
   position: fixed;
   bottom: 80px;
   right: 20px;
@@ -340,21 +361,7 @@ header {
   border-radius: 5px;
 }
 
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  .search-bar {
-    width: 90%;
-  }
-
-  .row {
-    margin: 20px 15px;
-  }
-
-  .column {
-    padding: 12px;
-  }
-}
-
+/* Additional adjustments for smaller screens */
 @media screen and (max-width: 480px) {
   .search-bar {
     flex-direction: column;
@@ -374,6 +381,10 @@ header {
   }
 
   .produk {
-    border-radius: 5%;
+    border-radius: 5%; /* Tighter border radius for smaller images */
+  }
+  
+  .column h2 {
+    font-size: 18px; /* Reduced font size */
   }
 }
