@@ -484,13 +484,12 @@ h2:focus {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 1000;
+  /* Posisikan chatbot tepat di bawah header */
+  margin-top: 70px; /* Sama dengan tinggi header */
 }
 
 .chatbot-modal {
