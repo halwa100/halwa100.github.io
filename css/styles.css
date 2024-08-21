@@ -481,20 +481,23 @@ h2:focus {
 }
 .chatbot-container {
   position: fixed;
-  bottom: 20px; /* Jarak dari bawah layar */
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.chatbot-modal {
   width: 300px; /* Sesuaikan lebar chatbot */
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  z-index: 1000; /* Agar chatbot tetap di atas konten lainnya */
-  margin-top: 70px; /* Sama dengan tinggi header */
-}
-
-.chatbot-modal {
-  width: 100%; /* Mengisi lebar chatbot-container */
-  height: 400px; /* Sesuaikan tinggi modal chatbot */
   overflow: hidden;
 }
 .chatbot-fab {
@@ -554,7 +557,6 @@ h2:focus {
   border: none;
   cursor: pointer;
 }
-
 .column {
   margin-bottom: 20px;
   border: 1px solid #ddd;
