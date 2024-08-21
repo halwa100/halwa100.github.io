@@ -702,9 +702,14 @@ h2:focus {
     }
   }
 
- @media (max-height: 600px) {
+@media (max-width: 768px) {
   .chatbot-container {
-    margin-top: calc(70px + 60px); /* Menambahkan ruang ekstra jika tinggi viewport kecil */
+    width: 80%; /* Mengurangi lebar pada layar kecil */
   }
 }
+
+@media (max-width: 480px) {
+  .chatbot-container {
+    width: 90%; /* Lebar lebih kecil untuk ponsel sangat kecil */
+  }
 }
