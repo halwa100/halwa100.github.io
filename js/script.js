@@ -1,7 +1,7 @@
 // Combined Event Listener for Search and Price Filtering
 document.getElementById('searchForm').addEventListener('submit', function (e) {
     e.preventDefault();  // Prevent form submission and page reload
-    
+
     const searchValue = document.getElementById('searchInput').value.toLowerCase();
     const selectedPriceRange = document.getElementById('priceFilter').value;
     const products = document.querySelectorAll('.column');
@@ -15,11 +15,11 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
         // Check if product matches the search term and price filter
         let matchesSearch = productName.includes(searchValue) || productDescription.includes(searchValue);
         let matchesPrice = (selectedPriceRange === 'all') ||
-            (selectedPriceRange === '0-800' && price <= 800) ||
-            (selectedPriceRange === '800-3000' && price > 800 && price <= 3000) ||
-            (selectedPriceRange === '3000-50000' && price > 3000 && price <= 50000) ||
-            (selectedPriceRange === '50000-170000' && price > 50000 && price <= 170000) ||
-            (selectedPriceRange === '170000-9999999' && price > 170000);
+            (selectedPriceRange === '0,- sampai 800,-' && price <= 800) ||
+            (selectedPriceRange === '800,- sampai 3000,-' && price > 800 && price <= 3000) ||
+            (selectedPriceRange === '3000,- sampai 50000,-' && price > 3000 && price <= 50000) ||
+            (selectedPriceRange === '50000,- sampai 170000,-' && price > 50000 && price <= 170000) ||
+            (selectedPriceRange === '170000,- sampai 9999999,-' && price > 170000);
 
         // Display product if both filters are matched
         product.style.display = (matchesSearch && matchesPrice) ? 'block' : 'none';
@@ -68,10 +68,23 @@ function processMessage(message) {
         response = 'Harga produk kami bervariasi, mulai dari Rp 800 hingga Rp 170.000.';
     } else if (message.toLowerCase().includes('jenis')) {
         response = 'ada bermacam macam jenis barang dan boleh request';
-    } 
+    }
     else {
         response = 'Maaf, saya tidak mengerti pertanyaan Anda. Coba tanyakan tentang jam buka, lokasi, atau harga.';
     }
 
     addMessage('Halwa bot', response);
 }
+
+
+document.querySelectorAll('.column').forEach(function (column) {
+    column.addEventListener('touchstart', function () {
+        column.classList.add('active');
+    });
+
+    column.addEventListener('touchend', function () {
+        setTimeout(function () {
+            column.classList.remove('active');
+        }, 200); // Durasi animasi sesuai dengan durasi @keyframes
+    });
+});
