@@ -11,7 +11,7 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #f00; /* Warna latar belakang merah */
     color: white;
 }
@@ -23,8 +23,8 @@ body, html {
 
 .menu ul {
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    justify-content: space-around;
+    padding: 0;
     list-style: none;
     margin: 0;
 }
@@ -44,33 +44,31 @@ body, html {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 0;
     background-color: white;
 }
 
 .search-bar form {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 100%;
-    margin: 0 10px;
+    max-width: 600px; /* Maksimal lebar untuk form pencarian */
 }
 
 .search-bar form select,
 .search-bar form input,
 .search-bar form button {
-    width: 100%;
-    max-width: 100%;
+    flex: 1;
     padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.search-bar form input {
+    margin: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.search-bar form select {
+    flex: 0.3;
 }
 
 .search-bar form button {
@@ -78,7 +76,6 @@ body, html {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
     cursor: pointer;
     width: auto;
 }
@@ -87,28 +84,61 @@ body, html {
     background-color: #0056b3;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
     .search-bar form {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        max-width: 100%;
     }
 
     .search-bar form select,
     .search-bar form input,
     .search-bar form button {
-        max-width: none;
-        margin: 0 10px;
+        width: 100%;
+        margin-bottom: 10px;
     }
 
-    .search-bar form input {
-        flex: 1;
-        margin-right: 10px;
+    .menu ul {
+        flex-direction: column;
     }
 
-    .search-bar form select {
-        flex: 0.2;
-        margin-right: 10px;
+    .menu ul li {
+        margin: 10px 0;
     }
+}
+
+/* Product Section Styles */
+.product-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 15px 0 10px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #555;
 }
 
 /* Footer */
