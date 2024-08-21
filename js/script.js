@@ -93,7 +93,6 @@ function adjustChatbotPosition() {
   var chatbotContainer = document.querySelector('.chatbot-container');
   
   if (header && chatbotContainer) {
-    // Menyimpan tinggi header
     var headerHeight = header.offsetHeight;
     chatbotContainer.style.marginTop = headerHeight + 'px';
   }
