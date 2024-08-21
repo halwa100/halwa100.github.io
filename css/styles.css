@@ -1,4 +1,53 @@
-/* Responsive adjustments */
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f00; /* Warna latar belakang merah */
+    color: white;
+}
+
+.logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+}
+
+.menu ul li {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+}
+
 .search-bar form {
     display: flex;
     flex-direction: column;
@@ -6,15 +55,36 @@
     gap: 10px;
     width: 100%;
     max-width: 100%;
+    margin: 0 10px;
 }
 
 .search-bar form select,
 .search-bar form input,
 .search-bar form button {
     width: 100%;
-    max-width: 90%;
+    max-width: 100%;
     padding: 10px;
     font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.search-bar form input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: auto;
+}
+
+.search-bar form button:hover {
+    background-color: #0056b3;
 }
 
 @media (min-width: 768px) {
@@ -22,33 +92,51 @@
         flex-direction: row;
         justify-content: center;
     }
-    
+
     .search-bar form select,
     .search-bar form input,
     .search-bar form button {
         max-width: none;
         margin: 0 10px;
     }
+
+    .search-bar form input {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .search-bar form select {
+        flex: 0.2;
+        margin-right: 10px;
+    }
 }
 
-.header {
-    padding: 10px;
+/* Footer */
+.footer {
+    background-color: #f00;
+    color: white;
     text-align: center;
-    background-color: #f00; /* Pastikan warna tetap terlihat baik */
+    padding: 20px;
 }
 
-.logo {
-    max-width: 150px;
-    height: auto;
+.footer a {
+    color: white;
+    text-decoration: none;
 }
 
-/* Adjust the margin between elements */
-.menu ul {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.footer a:hover {
+    text-decoration: underline;
 }
 
-.menu ul li {
-    margin: 0 15px;
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
 }
