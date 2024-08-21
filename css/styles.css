@@ -94,7 +94,8 @@ header {
 
 .about {
   text-align: center;
-  margin: 50px 0;
+  margin: 50px auto;
+  max-width: 1200px;
 }
 
 .about h1 {
@@ -339,19 +340,18 @@ header {
   border-radius: 5px;
 }
 
-
-
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
   .search-bar {
     width: 90%;
   }
 
   .row {
-    margin: 20px 10px;
+    margin: 20px 15px;
   }
 
   .column {
-    padding: 10px;
+    padding: 12px;
   }
 }
 
@@ -370,7 +370,7 @@ header {
   }
 
   .column {
-    padding: 8px;
+    padding: 10px;
   }
 
   .produk {
