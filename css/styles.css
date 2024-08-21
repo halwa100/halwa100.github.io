@@ -16,16 +16,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px; /* Adjusted padding for smaller screens */
+  padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  background-color: rgb(255, 0, 0); /* Background color */
+  background-color: rgb(255, 0, 0);
+  /* Transparent background */
 }
 
 .logo {
   margin-left: 10px;
-  height: 120px; /* Adjust as needed */
-  width: auto;  /* Preserve original proportions */
+  height: 120px; /* Sesuaikan dengan tinggi yang diinginkan */
+  width: auto;  /* Menjaga proporsi asli logo */
 }
 
 .header {
@@ -34,32 +35,18 @@ header {
   color: white;
 }
 
-/* Responsive header adjustments */
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-    padding: 10px;
-  }
-  .logo {
-    height: 80px; /* Reduced logo size for smaller screens */
-  }
-}
-
 .search-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px auto;
-  width: 90%; /* Adjust this to control the overall width */
-  max-width: 600px; /* Ensures it doesn't stretch too wide on larger screens */
+  width: 100%;
 }
 
 #searchInput {
   padding: 10px;
   font-size: 16px;
-  width: 70%; /* Adjusted to fit the input box within the search bar */
+  width: 300px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
@@ -73,7 +60,6 @@ header {
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  width: 20%; /* Adjust button width to match the input box */
 }
 
 .search-button:hover {
@@ -108,8 +94,7 @@ header {
 
 .about {
   text-align: center;
-  margin: 50px auto;
-  max-width: 1200px;
+  margin: 50px 0;
 }
 
 .about h1 {
@@ -126,7 +111,7 @@ header {
 
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted grid for better responsiveness */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   margin: 30px 20px;
 }
@@ -155,16 +140,6 @@ header {
   font-size: 24px;
   margin: 15px 0;
   color: #333;
-}
-
-/* Font and layout adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-  .row {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted grid for smaller screens */
-  }
-  .column h2 {
-    font-size: 20px; /* Adjusted font size */
-  }
 }
 
 .column p {
@@ -243,12 +218,13 @@ header {
   border-radius: 5px;
 }
 
+
 /* Floating Action Button */
 .chatbot-fab {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff;
+  background-color: #007bff; /* Warna tombol */
   color: #fff;
   border-radius: 50%;
   width: 60px;
@@ -262,16 +238,16 @@ header {
 }
 
 .chatbot-fab:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Warna saat di-hover */
 }
 
 .chatbot-icon {
   font-size: 24px;
 }
-
 /* Chatbot Modal */
 .chatbot-modal {
   display: none;
+  /* Initially hidden */
   position: fixed;
   bottom: 80px;
   right: 20px;
@@ -363,18 +339,41 @@ header {
   border-radius: 5px;
 }
 
+
+
+@media screen and (max-width: 768px) {
+  .search-bar {
+    width: 90%;
+  }
+
+  .row {
+    margin: 20px 10px;
+  }
+
+  .column {
+    padding: 10px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .search-bar {
     flex-direction: column;
-    width: 100%; /* Ensures full width on small screens */
   }
 
   #searchInput {
-    width: 100%; /* Input takes full width on small screens */
+    width: 100%;
     margin-bottom: 10px;
   }
 
-  .search-button {
-    width: 100%; /* Button takes full width on small screens */
+  .button {
+    font-size: 16px;
+  }
+
+  .column {
+    padding: 8px;
+  }
+
+  .produk {
+    border-radius: 5%;
   }
 }
