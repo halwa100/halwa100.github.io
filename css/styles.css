@@ -52,13 +52,14 @@ header {
   align-items: center;
   justify-content: center;
   margin: 20px auto;
-  width: 100%;
+  width: 90%; /* Adjust this to control the overall width */
+  max-width: 600px; /* Ensures it doesn't stretch too wide on larger screens */
 }
 
 #searchInput {
   padding: 10px;
   font-size: 16px;
-  width: 300px;
+  width: 70%; /* Adjusted to fit the input box within the search bar */
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
@@ -72,6 +73,7 @@ header {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  width: 20%; /* Adjust button width to match the input box */
 }
 
 .search-button:hover {
@@ -361,30 +363,18 @@ header {
   border-radius: 5px;
 }
 
-/* Additional adjustments for smaller screens */
 @media screen and (max-width: 480px) {
   .search-bar {
     flex-direction: column;
+    width: 100%; /* Ensures full width on small screens */
   }
 
   #searchInput {
-    width: 100%;
+    width: 100%; /* Input takes full width on small screens */
     margin-bottom: 10px;
   }
 
-  .button {
-    font-size: 16px;
-  }
-
-  .column {
-    padding: 10px;
-  }
-
-  .produk {
-    border-radius: 5%; /* Tighter border radius for smaller images */
-  }
-  
-  .column h2 {
-    font-size: 18px; /* Reduced font size */
+  .search-button {
+    width: 100%; /* Button takes full width on small screens */
   }
 }
