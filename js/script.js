@@ -88,12 +88,19 @@ document.querySelectorAll('.column').forEach(function (column) {
         }, 200); // Durasi animasi sesuai dengan durasi @keyframes
     });
 });
-window.addEventListener('resize', function() {
-  var chatbotModal = document.querySelector('.chatbot-container');
+function adjustChatbotPosition() {
+  var header = document.querySelector('header');
+  var chatbotContainer = document.querySelector('.chatbot-container');
   
-  // Mendapatkan tinggi viewport
-  var viewportHeight = window.innerHeight;
-  
-  // Sesuaikan jarak bawah jika keyboard muncul
-  chatbotModal.style.bottom = (viewportHeight < 600 ? '60px' : '0');
-});
+  if (header && chatbotContainer) {
+    // Menyimpan tinggi header
+    var headerHeight = header.offsetHeight;
+    chatbotContainer.style.marginTop = headerHeight + 'px';
+  }
+}
+
+// Panggil fungsi saat ukuran jendela berubah
+window.addEventListener('resize', adjustChatbotPosition);
+
+// Panggil fungsi saat halaman dimuat
+window.addEventListener('load', adjustChatbotPosition);
