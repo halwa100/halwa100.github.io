@@ -491,6 +491,8 @@ h2:focus {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   flex-direction: column;
+  bottom: env(safe-area-inset-bottom, 20px);
+  padding-bottom: 60px;
 }
 
 .chatbot-fab {
@@ -697,4 +699,10 @@ h2:focus {
     }
   }
 
+  @media (max-height: 600px) {
+    .chatbot-modal {
+      bottom: 60px;
+      /* Menambahkan ruang ekstra di bawah jika tinggi viewport kecil */
+    }
+  }
 }
