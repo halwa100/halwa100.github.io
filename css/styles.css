@@ -366,7 +366,7 @@ header {
 @media screen and (max-width: 480px) {
   .search-bar {
     flex-direction: column;
-    width: 100%; /* Ensures full width on small screens */
+    width: 70%; /* Ensures full width on small screens */
   }
 
   #searchInput {
