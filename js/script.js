@@ -88,11 +88,16 @@ document.querySelectorAll('.column').forEach(function (column) {
         }, 200); // Durasi animasi sesuai dengan durasi @keyframes
     });
 });
-window.addEventListener('resize', function () {
-    var chatbotModal = document.querySelector('.chatbot-modal');
-    if (window.innerHeight < 600) { // Asumsi tinggi layar kecil menunjukkan keyboard muncul
-        chatbotModal.style.bottom = '60px'; // Sesuaikan dengan kebutuhan Anda
-    } else {
-        chatbotModal.style.bottom = '20px'; // Posisi normal
-    }
+window.addEventListener('resize', function() {
+  var chatbotModal = document.querySelector('.chatbot-modal');
+  var header = document.querySelector('header');
+  
+  // Menyimpan tinggi header
+  var headerHeight = header ? header.offsetHeight : 0;
+
+  if (window.innerHeight < 600) { // Menandakan keyboard muncul
+    chatbotModal.style.bottom = (headerHeight + 20) + 'px'; // Menyesuaikan posisi chatbot
+  } else {
+    chatbotModal.style.bottom = '20px'; // Posisi normal
+  }
 });
