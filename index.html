@@ -271,23 +271,21 @@
         <p>© Siswa Praktik Kerja Lapangan SMK Mutipuga 2024</p>
     </footer>
 
-<!-- Floating Action Button -->
-<div id="chatbot-fab" class="chatbot-fab">
-    <i class="fas fa-comments chatbot-icon"></i>
-</div>
+<div class="chatbot-fab" id="chatbot-fab">
+        <span class="chatbot-icon">💬</span>
+    </div>
 
-    <!-- Chatbot Modal -->
-    <div id="chatbot" class="chatbot-modal">
+    <div class="chatbot-modal" id="chatbot">
         <div class="chatbot-header">
-            <span class="chatbot-title">Halwa Bot</span>
-            <span id="close-chatbot" class="chatbot-close">&times;</span>
+            <span class="chatbot-title">Halwa bot</span>
+            <span class="chatbot-close" id="close-chatbot">&times;</span>
         </div>
-        <div id="chatbot-body" class="chatbot-body">
-            <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chatbot-messages" id="chatbot-messages"></div>
         </div>
         <div class="chatbot-footer">
-            <input type="text" id="chatbot-text-input" placeholder="Ketik pesan...">
-            <button id="send-chatbot-message" class="chatbot-send">Kirim</button>
+            <input type="text" id="chatbot-text-input" placeholder="Tulis pesan...">
+            <button class="chatbot-send" id="send-chatbot-message">Kirim</button>
         </div>
     </div>
     <script src="js/script.js"></script>
