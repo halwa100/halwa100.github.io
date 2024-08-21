@@ -483,7 +483,8 @@ h2:focus {
 .chatbot-modal {
   display: none;
   /* Style lainnya untuk modal chatbot */
-  position: fixed;
+  position: relative;
+  z-index: 1000; 
   bottom: 20px;
   right: 20px;
   width: 300px;
