@@ -479,27 +479,22 @@ h2:focus {
     transform: translateX(200%);
   }
 }
-.chatbot-container {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  z-index: 1000;
+.chatbot-modal {
+  display: none;
+  /* Style lainnya untuk modal chatbot */
+  position: relative;
+  z-index: 1000; 
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  flex-direction: column;
+  bottom: env(safe-area-inset-bottom, 20px);
+  padding-bottom: 60px;
 }
 
-.chatbot-modal {
-  width: 300px; /* Sesuaikan lebar chatbot */
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
-}
 .chatbot-fab {
   position: fixed;
   bottom: 20px;
