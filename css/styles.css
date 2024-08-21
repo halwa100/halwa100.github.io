@@ -49,6 +49,7 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
+  height: 70px; /* Sesuaikan dengan tinggi header Anda */
   justify-content: space-between;
   flex-wrap: wrap;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -481,22 +482,20 @@ h2:focus {
 }
 .chatbot-container {
   position: fixed;
-  bottom: 0;
+  bottom: 20px; /* Jarak dari bawah layar */
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  z-index: 1000;
-  /* Posisikan chatbot tepat di bawah header */
-  margin-top: 70px; /* Sama dengan tinggi header */
-}
-
-.chatbot-modal {
   width: 300px; /* Sesuaikan lebar chatbot */
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  z-index: 1000; /* Agar chatbot tetap di atas konten lainnya */
+  margin-top: 70px; /* Sama dengan tinggi header */
+}
+
+.chatbot-modal {
+  width: 100%; /* Mengisi lebar chatbot-container */
+  height: 400px; /* Sesuaikan tinggi modal chatbot */
   overflow: hidden;
 }
 .chatbot-fab {
