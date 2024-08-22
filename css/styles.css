@@ -254,12 +254,7 @@ body {
 
 .Desc p {
   text-align: center;
-  font-size: 21px;
-  /* Ukuran font 16px */
-  line-height: 1.5;
-  /* Jarak antar baris 1.5 */
-  margin-bottom: 10px;
-  /* Jarak bawah antar paragraf, jika diperlukan */
+  font-size: 16px;
 }
 
 h2 {
