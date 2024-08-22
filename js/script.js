@@ -88,16 +88,49 @@ document.querySelectorAll('.column').forEach(function (column) {
         }, 200); // Durasi animasi sesuai dengan durasi @keyframes
     });
 });
-window.addEventListener('resize', function() {
-  var chatbotModal = document.querySelector('.chatbot-modal');
-  var header = document.querySelector('header');
-  
-  // Menyimpan tinggi header
-  var headerHeight = header ? header.offsetHeight : 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const chatbotFab = document.querySelector('.chatbot-fab');
+  const chatbotModal = document.querySelector('.chatbot-modal');
+  const chatbotClose = document.querySelector('.chatbot-close');
+  const chatbotInput = document.querySelector('.chatbot-footer input');
 
-  if (window.innerHeight < 600) { // Menandakan keyboard muncul
-    chatbotModal.style.bottom = (headerHeight + 20) + 'px'; // Menyesuaikan posisi chatbot
-  } else {
-    chatbotModal.style.bottom = '20px'; // Posisi normal
+  // Fungsi untuk menampilkan modal chatbot
+  function showChatbotModal() {
+    chatbotModal.style.display = 'flex';
+    chatbotFab.style.display = 'none'; // Sembunyikan tombol FAB saat modal terbuka
   }
+
+  // Fungsi untuk menyembunyikan modal chatbot
+  function hideChatbotModal() {
+    chatbotModal.style.display = 'none';
+    chatbotFab.style.display = 'flex'; // Tampilkan kembali tombol FAB saat modal tertutup
+  }
+
+  // Event listener untuk membuka chatbot ketika FAB diklik
+  chatbotFab.addEventListener('click', showChatbotModal);
+
+  // Event listener untuk menutup chatbot ketika tombol close diklik
+  chatbotClose.addEventListener('click', hideChatbotModal);
+
+  // Pastikan chatbot tetap berada di tengah layar saat keyboard muncul di perangkat mobile
+  window.addEventListener('resize', function () {
+    if (chatbotModal.style.display === 'flex') {
+      adjustChatbotPosition();
+    }
+  });
+
+  function adjustChatbotPosition() {
+    const viewportHeight = window.innerHeight;
+    const modalHeight = chatbotModal.offsetHeight;
+    const availableHeight = viewportHeight - modalHeight;
+
+    // Atur posisi modal agar tetap di tengah layar
+    chatbotModal.style.bottom = `${availableHeight / 2}px`;
+  }
+
+  // Pastikan posisi chatbot selalu disesuaikan saat input diaktifkan (untuk perangkat mobile)
+  chatbotInput.addEventListener('focus', adjustChatbotPosition);
+  chatbotInput.addEventListener('blur', function () {
+    chatbotModal.style.bottom = '20px'; // Kembalikan posisi default setelah input kehilangan fokus
+  });
 });
