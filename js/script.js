@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatbotMessages = document.getElementById('chatbot-messages');
     const chatbotBody = document.getElementById('chatbot-body');
     const sendMessageButton = document.getElementById('send-chatbot-message');
-// Combined Event Listener for Search and Price Filtering
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    // Combined Event Listener for Search and Price Filtering
     document.getElementById('searchForm').addEventListener('submit', function (e) {
         e.preventDefault();  // Prevent form submission and page reload
 
@@ -121,4 +124,17 @@ document.addEventListener('DOMContentLoaded', function () {
     chatbotInput.addEventListener('blur', function () {
         chatbotModal.style.bottom = '20px'; // Kembalikan posisi default setelah input kehilangan fokus
     });
+});
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling ke bawah
+        header.classList.add('hidden');
+    } else {
+        // Scrolling ke atas
+        header.classList.remove('hidden');
+    }
+
+    lastScrollTop = scrollTop;
 });
