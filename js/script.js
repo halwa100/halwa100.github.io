@@ -6,7 +6,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatbotMessages = document.getElementById('chatbot-messages');
     const chatbotBody = document.getElementById('chatbot-body');
     const sendMessageButton = document.getElementById('send-chatbot-message');
+// Combined Event Listener for Search and Price Filtering
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+        e.preventDefault();  // Prevent form submission and page reload
 
+        const searchValue = document.getElementById('searchInput').value.toLowerCase();
+        const selectedPriceRange = document.getElementById('priceFilter').value;
+        const products = document.querySelectorAll('.column');
+
+        products.forEach(product => {
+            const productName = product.querySelector('h2').textContent.toLowerCase();
+            const productDescription = product.querySelectorAll('p')[1]?.textContent.toLowerCase() || '';
+            const priceText = product.querySelector('.price').textContent;
+            const price = parseInt(priceText.replace(/[^\d]/g, ''));
+
+            // Check if product matches the search term and price filter
+            let matchesSearch = productName.includes(searchValue) || productDescription.includes(searchValue);
+            let matchesPrice = (selectedPriceRange === 'all') ||
+                (selectedPriceRange === '0,- sampai 800,-' && price <= 800) ||
+                (selectedPriceRange === '800,- sampai 3000,-' && price > 800 && price <= 3000) ||
+                (selectedPriceRange === '3000,- sampai 50000,-' && price > 3000 && price <= 50000) ||
+                (selectedPriceRange === '50000,- sampai 170000,-' && price > 50000 && price <= 170000) ||
+                (selectedPriceRange === '170000,- sampai 9999999,-' && price > 170000);
+
+            // Display product if both filters are matched
+            product.style.display = (matchesSearch && matchesPrice) ? 'block' : 'none';
+        });
+    });
     // Fungsi untuk menampilkan modal chatbot
     function showChatbotModal() {
         chatbotModal.style.display = 'flex';
