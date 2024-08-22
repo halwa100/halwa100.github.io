@@ -288,23 +288,25 @@
 
         </div>
     </section>
-    <div class="chatbot-fab" id="chatbot-fab">
+   
+   <div class="chatbot-modal" id="chatbot" style="display: none;">
+    <div class="chatbot-header">
+        <span>Halwa bot</span>
+        <button class="chatbot-close" id="close-chatbot">&times;</button>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+        <div id="chatbot-messages"></div>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="chatbot-text-input" placeholder="Ketik pesan di sini..." />
+        <button id="send-chatbot-message">Kirim</button>
+    </div>
+</div>
+
+<!-- FAB button for chatbot -->
+ <div class="chatbot-fab" id="chatbot-fab">
         <span class="chatbot-icon">💬</span>
     </div>
-    <div class="chatbot-modal" id="chatbot">
-        <div class="chatbot-header">
-            <span class="chatbot-title">Halwa bot</span>
-            <span class="chatbot-close" id="close-chatbot">&times;</span>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-            <div class="chatbot-messages" id="chatbot-messages"></div>
-         </div>
-  </div>
-
-        <div class="chatbot-footer">
-            <input type="text" id="chatbot-text-input" placeholder="Tulis pesan...">
-            <button class="chatbot-send" id="send-chatbot-message">Kirim</button>
-        </div>
     <script src="js/script.js"></script>
     <footer class="footer" id="contact">
         <p class="copyright">© Siswa Praktik Kerja Lapangan SMK Muhammadiyah 03 Pucang Gading Tahun 2024</p>
