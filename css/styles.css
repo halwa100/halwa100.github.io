@@ -543,26 +543,32 @@ h2:focus {
 
 /* Chatbot Footer */
 .chatbot-footer {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #ccc;
 }
 
 .chatbot-footer input {
-  flex: 1;
-  padding: 5px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 
 .chatbot-footer button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chatbot-footer button:hover {
+    background-color: #0056b3;
 }
 
 /* Responsiveness */
