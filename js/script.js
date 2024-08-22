@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatbotInput = document.querySelector('.chatbot-footer input');
     const chatbotMessages = document.getElementById('chatbot-messages');
     const chatbotBody = document.getElementById('chatbot-body');
+    const sendMessageButton = document.getElementById('send-chatbot-message');
 
     // Fungsi untuk menampilkan modal chatbot
     function showChatbotModal() {
@@ -26,33 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const availableHeight = viewportHeight - modalHeight;
         chatbotModal.style.bottom = `${availableHeight / 2}px`; // Posisikan di tengah
     }
-
-    // Event listener untuk membuka chatbot ketika FAB diklik
-    chatbotFab.addEventListener('click', showChatbotModal);
-
-    // Event listener untuk menutup chatbot ketika tombol close diklik
-    chatbotClose.addEventListener('click', hideChatbotModal);
-
-    // Sesuaikan posisi chatbot saat ukuran layar berubah (misalnya saat keyboard muncul di perangkat mobile)
-    window.addEventListener('resize', function () {
-        if (chatbotModal.style.display === 'flex') {
-            adjustChatbotPosition();
-        }
-    });
-
-    // Sesuaikan posisi chatbot saat input diaktifkan (untuk perangkat mobile)
-    chatbotInput.addEventListener('focus', adjustChatbotPosition);
-    chatbotInput.addEventListener('blur', function () {
-        chatbotModal.style.bottom = '20px'; // Kembalikan posisi default setelah input kehilangan fokus
-    });
-
-    // Event listener untuk mengirim pesan chatbot
-    document.getElementById('send-chatbot-message').addEventListener('click', function () {
-        const userInput = chatbotInput.value;
-        addMessage('You', userInput);
-        processMessage(userInput);
-        chatbotInput.value = '';
-    });
 
     // Fungsi untuk menambahkan pesan ke dalam chatbot
     function addMessage(sender, message) {
@@ -84,45 +58,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
         addMessage('Halwa bot', response);
     }
-});
 
-// Event listener untuk efek animasi sentuhan pada produk
-document.querySelectorAll('.column').forEach(function (column) {
-    column.addEventListener('touchstart', function () {
-        column.classList.add('active');
+    // Event listener untuk membuka chatbot ketika FAB diklik
+    chatbotFab.addEventListener('click', showChatbotModal);
+
+    // Event listener untuk menutup chatbot ketika tombol close diklik
+    chatbotClose.addEventListener('click', hideChatbotModal);
+
+    // Event listener untuk mengirim pesan chatbot
+    sendMessageButton.addEventListener('click', function () {
+        const userInput = chatbotInput.value;
+        if (userInput.trim() !== '') {
+            addMessage('You', userInput);
+            processMessage(userInput);
+            chatbotInput.value = '';
+        }
     });
 
-    column.addEventListener('touchend', function () {
-        setTimeout(function () {
-            column.classList.remove('active');
-        }, 200); // Durasi animasi sesuai dengan durasi @keyframes
+    // Kirim pesan menggunakan tombol Enter
+    chatbotInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Cegah default behavior dari Enter
+            sendMessageButton.click(); // Trigger tombol kirim
+        }
     });
-});
 
-// Event listener untuk pencarian produk dan filter harga
-document.getElementById('searchForm').addEventListener('submit', function (e) {
-    e.preventDefault();  // Prevent form submission and page reload
+    // Sesuaikan posisi chatbot saat ukuran layar berubah (misalnya saat keyboard muncul di perangkat mobile)
+    window.addEventListener('resize', function () {
+        if (chatbotModal.style.display === 'flex') {
+            adjustChatbotPosition();
+        }
+    });
 
-    const searchValue = document.getElementById('searchInput').value.toLowerCase();
-    const selectedPriceRange = document.getElementById('priceFilter').value;
-    const products = document.querySelectorAll('.column');
-
-    products.forEach(product => {
-        const productName = product.querySelector('h2').textContent.toLowerCase();
-        const productDescription = product.querySelectorAll('p')[1]?.textContent.toLowerCase() || '';
-        const priceText = product.querySelector('.price').textContent;
-        const price = parseInt(priceText.replace(/[^\d]/g, ''));
-
-        // Check if product matches the search term and price filter
-        let matchesSearch = productName.includes(searchValue) || productDescription.includes(searchValue);
-        let matchesPrice = (selectedPriceRange === 'all') ||
-            (selectedPriceRange === '0,- sampai 800,-' && price <= 800) ||
-            (selectedPriceRange === '800,- sampai 3000,-' && price > 800 && price <= 3000) ||
-            (selectedPriceRange === '3000,- sampai 50000,-' && price > 3000 && price <= 50000) ||
-            (selectedPriceRange === '50000,- sampai 170000,-' && price > 50000 && price <= 170000) ||
-            (selectedPriceRange === '170000,- sampai 9999999,-' && price > 170000);
-
-        // Display product if both filters are matched
-        product.style.display = (matchesSearch && matchesPrice) ? 'block' : 'none';
+    // Sesuaikan posisi chatbot saat input diaktifkan (untuk perangkat mobile)
+    chatbotInput.addEventListener('focus', adjustChatbotPosition);
+    chatbotInput.addEventListener('blur', function () {
+        chatbotModal.style.bottom = '20px'; // Kembalikan posisi default setelah input kehilangan fokus
     });
 });
